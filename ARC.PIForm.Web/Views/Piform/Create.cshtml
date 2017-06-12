@@ -1,0 +1,227 @@
+﻿@using ARC.PIForm.Model.Entities
+@model PersonalInformationEntity
+@{
+    ViewBag.Title = "Personal Information Form";
+}
+
+<h3 class="h3-site">Personal Information Form</h3>
+
+
+<div>
+    
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation" class="active">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation">@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="personalInfo">
+                    @using (Html.BeginForm("Create", "Piform"))
+                    {
+                        <div class="content">
+                            <div class="fieldRow">
+                                <span class="fieldCell oneCol">
+                            @{ var prefixList = new SelectList(new List<SelectListItem>
+                               {
+                                   new SelectListItem {Text = "Mr", Value = "Mr"},
+                                   new SelectListItem {Text = "Ms", Value = "Ms"},
+                                   new SelectListItem {Text = "Mrs", Value = "Mrs"},
+                                   new SelectListItem {Text = "Doctor", Value = "Dr"}
+                               }, "Value", "Text"); }
+                            <label for="Prefix">Prefix</label>
+                            @Html.DropDownListFor(model => model.Prefix, prefixList, new {style = "width: 150px;"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="FirstName">First Name <span class="requiredField">* : </span></label>
+                            @Html.TextBoxFor(model => model.FirstName, new {style = "width: 150px", @title = "Please enter your first name. As per 10th and Passport only"})
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "field-validation-error"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="MiddleName">Middle Name : </label>
+                            @Html.TextBoxFor(model => model.MiddleName, new {style = "width: 150px", @title = "Please enter your middle name. As per 10th and Passport only"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="LastName">Surname<span class="requiredField">*: </span></label>
+                            @Html.TextBoxFor(model => model.LastName, new {style = "width: 150px", @title = "Please enter your surname. As per 10th and Passport only"})
+                            @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "field-validation-error"}) 
+                        </span>
+                            </div>
+                            <br/>
+                            <div class="fieldRow">
+                                <span class="fieldCell oneCol">
+                            <label for="BloodGroup">Blood Group<span class="requiredField">*: </span></label>
+                            @Html.TextBoxFor(model => model.BloodGroup, new {style = "width: 150px"})
+                            @Html.ValidationMessageFor(model => model.BloodGroup, "", new {@class = "field-validation-error"}) 
+                        </span>
+                                <span class="fieldCell oneCol">
+                            @{
+                                var selectList = new SelectList(
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "Male", Value = "Male"},
+                                        new SelectListItem {Text = "Female", Value = "Female"},
+                                        new SelectListItem {Text = "Other", Value = "Other"}
+                                    }, "Value", "Text");
+                            }
+                            <label for="Gender">Gender<span class="requiredField"> *: </span></label>
+                            @Html.DropDownListFor(model => model.Gender, selectList, new {style = "width: 150px;"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            @{
+                                var martialStatusList = new SelectList(
+                                    new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "Single", Value = "Single"},
+                                        new SelectListItem {Text = "Married", Value = "Married"}
+                                    }, "Value", "Text");
+                            }
+                            <label for="MaritalStatus">Marital Status<span class="requiredField">* : </span></label>
+                            @Html.DropDownListFor(model => model.MaritalStatus, martialStatusList, new {id = "MaritalStatus", style = "width: 150px;"})
+                        </span>
+
+                            </div>
+                            <br/>
+                            <div class="fieldRow">
+
+
+                                <span class="fieldCell oneCol">
+                            <label for="BirthDate">Date of Birth<span class="requiredField">*: </span></label>
+                            @Html.TextBoxFor(model => model.BirthDate, new {type = "date", style = "width: 150px"})
+                            @Html.ValidationMessageFor(model => model.BirthDate, "", new {@class = "field-validation-error"}) 
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="AnniversaryDate">Anniversary <span class="requiredField"> : </span></label>
+                            @Html.TextBoxFor(model => model.AnniversaryDate, new {type = "date", style = "width: 150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="Qualification">Qualification<span class="requiredField">* : </span></label>
+                            @Html.TextBoxFor(model => model.Qualification, new {style = "width: 150px"})
+                            @Html.ValidationMessageFor(model => model.Qualification, "", new {@class = "field-validation-error"}) 
+                        </span>
+
+                            </div>
+                            <br/>
+                            <div class="fieldRow">
+                                <span class="fieldCell threeCol">
+                            <label for="PriorExperince">Experience before emids (in months)<span class="requiredField">*: </span></label>
+                            @Html.TextBoxFor(model => model.WorkExperience, new {style = "width:150px", @title = "Experience needs to be captured as per the relieving letters."})
+                            @Html.ValidationMessageFor(model => model.WorkExperience, "", new {@class = "field-validation-error"}) 
+                        </span>
+                            </div><br/>
+                            <div class="fieldRow">
+                                <span class="fieldCell oneCol">
+                            <label for="PanCard">PAN Card Number:</label>
+                            @Html.TextBoxFor(model => model.PanCardNumber, new {style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="PassportNumber">Passport Number:</label>
+                            @Html.TextBoxFor(model => model.PassportNumber, new {style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="PassportExpiryDate">Expiry Date:</label>
+                            @Html.TextBoxFor(model => model.PassportExpiry, new {type = "date", style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="PassportPlaceOfIssue">Place of Issue:</label>
+                            @Html.TextBoxFor(model => model.PassportIssuePlace, new {style = "width:150px"})
+                        </span>
+                            </div><br/>
+                            <div class="fieldRow">
+                                <span class="fieldCell oneCol">
+                            <label for="Aadhar">Aadhar Card Number:</label>
+                            @Html.TextBoxFor(model => model.AadharCardNumber, new {style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="UAN">UAN Number</label>
+                            @Html.TextBoxFor(model => model.UanNumber, new {style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="Visa">Visa </label>
+                            @Html.TextBoxFor(model => model.Visa, new {style = "width:150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="Visa">Visa Expiry</label>
+                            @Html.TextBoxFor(model => model.VisaExpiry, new {type = "date", style = "width:150px"})
+                        </span>
+
+                            </div><br/>
+                            <div class="fieldRow">
+                                <span class="fieldCell oneCol">
+                            <label for="FatherName">Father's Name<span class="requiredField">* : </span></label>
+                            @Html.TextBoxFor(model => model.FatherName, new {style = "width: 150px"})
+                            @Html.ValidationMessageFor(model => model.FatherName, "", new {@class = "field-validation-error"}) 
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="FatherBirthDate">Father's Date of Birth <span class="requiredField"> : </span></label>
+                            @Html.TextBoxFor(model => model.FatherBirthDate, new {type = "date", style = "width: 150px"})
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="MotherName">Mother's Name<span class="requiredField">* : </span></label>
+                            @Html.TextBoxFor(model => model.MotherName, new {style = "width: 150px"})
+                            @Html.ValidationMessageFor(model => model.MotherName, "", new {@class = "field-validation-error"}) 
+                        </span>
+                                <span class="fieldCell oneCol">
+                            <label for="MotherBirthDate">Mother's Date of Birth <span class="requiredField"> : </span></label>
+                            @Html.TextBoxFor(model => model.MotherBirthDate, new {type = "date", style = "width: 150px"})
+                        </span>
+                            </div><br/>
+                            <div id="dependents" name="dependents" style="display: none">
+                                <div class="fieldRow">
+                                    <span class="fieldCell oneCol">
+                                            <label for="SpouseName">Spouse's Name<span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.SpouseName, new {style = "width: 150px"})
+                                        </span>
+                                    <span class="fieldCell oneCol">
+                                            <label for="SpouseBirthDate">Spouse's Date of Birth <span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.SpouseBirthDate, new {type = "date", style = "width: 150px"})
+                                        </span>
+                                </div><br/>
+                                <div class="fieldRow">
+                                    <span class="fieldCell oneCol">
+                                            <label for="FirstChildName">Name of Child 1<span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.FirstChildName, new {style = "width: 150px"})
+                                        </span>
+                                    <span class="fieldCell oneCol">
+                                            <label for="FirstChildBirthDate">Child 1 Date of Birth <span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.FirstChildBirthDate, new {type = "date", style = "width: 150px"})
+                                        </span>
+                                    <span class="fieldCell oneCol">
+                                            <label for="SecondChildName">Name of Child 2<span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.SecondChildName, new {style = "width: 150px"})
+                                        </span>
+                                    <span class="fieldCell oneCol">
+                                            <label for="SecondChildBirthDate">Child 2 Date of Birth <span class="requiredField"> : </span></label>
+                                            @Html.TextBoxFor(model => model.SecondChildBirthDate, new {type = "date", style = "width: 150px"})
+                                        </span>
+                                </div>
+
+                                <br/>
+                            </div>
+
+                        </div>
+                        <input type="submit" value="Save" class="btn btn-click" />
+                    }
+                </div>
+
+                </div>
+        </div>
+    </div>
+<div class="row">
+
+    <br/>
+    <ul class="list-inline pull-right">
+        <li><button type="button" class="btn btn-default prev-step btn-prev-next">Previous</button></li>
+        <li>@Html.ActionLink("Next", "Create", new { Controller = "ContactInfo", @style = "text-transform:capitalize;" })</li>
+        @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+    </ul>
+</div>
+</div>

@@ -1,0 +1,193 @@
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+      font-family: Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #222222;
+  background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+span.fieldCell
+{
+	display: -moz-inline-block; 
+	display: inline-block;
+	vertical-align: right;
+	margin: 0 4px 4px 0px;
+}
+span.fieldCell label
+{
+	display: block;
+	margin-bottom: 2px;
+}
+.oneCol { width: 167px; }
+.oneMoreCol{width:180px;}
+.twoCol { width: 342px; }
+.threeCol { width: 517px; }
+.fourCol { width: 692px; }
+.dateField { width: 130px; }
+.fieldsetclass {
+display: -moz-inline-box;
+display: inline-block;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+}
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+.nav-stacked > li + li {
+    margin-top: 0px;
+}
+.nav-tabs > li > a {
+    padding: 10px 10px 5px 10px !important;
+    color: #736f6f;
+    background-color: #E3F2FD;
+    border: 0px;
+    border-radius: 0px;
+    margin: 0;
+}
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+    background-color: #f49737; 
+    color: #FFFFFF;
+    z-index: 99;
+    transition: all 0.5s ease 0s;
+}
+.nav-tabs > li.active > a {
+   color: #FFFFFF;
+   background-color: #f49737;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+    z-index: 100;
+}
+.nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+   color: #FFFFFF;
+   background-color: #f49737;  
+   box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+   transition: all 0.5s ease 0s;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease 0s;
+  
+}
+.btn-primary {
+    background-color: #2962FF;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0D47A1;
+}
+
+  .table-bordered-inner th {
+    border-bottom: 1px solid #ddd !important;
+  }
+
+  .h3-site {
+    font-family: Segoe UI, Helvetica, Arial, sans-serif;
+      font-weight: 40   0;
+      line-height: 1.1;
+      color: #222222;
+      background-color: #ffffff;
+  }
+
+.logo {
+    width: 300px;
+    min-height: 50px;
+    background: url('images/emidsLogo.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 100;
+}
+
+.field-validation-error {
+    color: #C1372A !important;
+    font-weight: normal !important;
+    margin-top: -19px;
+    margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+      font-family: Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease 0s;
+  
+}
+.btn-primary {
+    background-color: #2962FF;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #000000;
+}
+
+.btn-click {
+    background-color: #ff5d01;
+    color: #ffffff;
+}
+.btn-prev-next {
+    background-color: #fa762b;
+    color: #ffffff;
+}
+
+.table-bordered-inner th {
+    border-bottom: 1px solid #ddd !important;
+  }

@@ -1,0 +1,179 @@
+﻿@model ARC.PIForm.Model.Entities.EducationalDetailsEntity
+
+@{
+    ViewBag.Title = "Educational Details Form";
+}
+
+
+<h3 class="h3-site">Educational Details</h3>
+
+
+<div>
+
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation" class="active">@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+            @using (Html.BeginForm("Create", "EducationDetails"))
+            {
+                <div class="content">
+                    <label for="CourseDegree">Course/Degree</label>
+                    <div class="fieldRow">
+
+                        <table class="table-bordered">
+                            <thead>
+                            <tr style="width: 100px; text-align: center">
+                                <td style="width: 80px; text-align: center"><label for="CourseName">Name of University</label></td>
+                                <td style="width: 100px; text-align: center"><label for="Specialization">Address of University</label></td>
+                                <td style="width: 100px; text-align: center"><label for="UniversityName">Contact Number (University)</label></td>
+                                <td style="width: 100px; text-align: center"><label for="Graduation">Registration Number</label></td>
+                                <td style="width: 100px; text-align: center"><label for="Graduation">Course / Degree / Diploma obtained</label></td>
+                                <td style="width: 100px; text-align: center"><label for="Graduation">Specialization</label></td>
+                                <td style="width: 100px; text-align: center"><label for="AggregateMarks">Name of Institute/College</label></td>
+                                <td style="width: 100px; text-align: center"><label for="RecognitionDistinction">Address of College</label></td>
+                                <td style="width: 100px; text-align: center"><label for="RecognitionDistinction">Contact number (College)</label></td>
+                                <td>
+                                    <table class="table-bordered">
+                                        <tr>
+                                            <th colspan="2" style="text-align: center">Period</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 80px; text-align: center">From</th>
+                                            <th style="width: 80px; text-align: center">To</th>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td>@Html.TextBoxFor(model => model.Education1.UniversityName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.UniversityAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.UniversityContactNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.RegistrationNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.Course, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.Specialization, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.CollegeName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.CollegeAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education1.CollegeContact, new {style = "width:100px; height: 30px"})</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.TextBoxFor(model => model.Education1.CourseStartDate, new {style = "width:80px; height: 30px"})</td>
+                                            <td>@Html.TextBoxFor(model => model.Education1.CourseEndDate, new {style = "width:80px; height: 30px"})</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.TextBoxFor(model => model.Education2.UniversityName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.UniversityAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.UniversityContactNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.RegistrationNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.Course, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.Specialization, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.CollegeName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.CollegeAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education2.CollegeContact, new {style = "width:100px; height: 30px"})</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.TextBoxFor(model => model.Education2.CourseStartDate, new {style = "width:80px; height: 30px"})</td>
+                                            <td>@Html.TextBoxFor(model => model.Education2.CourseEndDate, new {style = "width:80px; height: 30px"})</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.TextBoxFor(model => model.Education3.UniversityName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.UniversityAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.UniversityContactNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.RegistrationNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.Course, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.Specialization, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.CollegeName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.CollegeAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education3.CollegeContact, new {style = "width:100px; height: 30px"})</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.TextBoxFor(model => model.Education3.CourseStartDate, new {style = "width:80px; height: 30px"})</td>
+                                            <td>@Html.TextBoxFor(model => model.Education3.CourseEndDate, new {style = "width:80px; height: 30px"})</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@Html.TextBoxFor(model => model.Education4.UniversityName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.UniversityAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.UniversityContactNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.RegistrationNumber, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.Course, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.Specialization, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.CollegeName, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.CollegeAddress, new {style = "width:100px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Education4.CollegeContact, new {style = "width:100px; height: 30px"})</td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>@Html.TextBoxFor(model => model.Education4.CourseStartDate, new {style = "width:80px; height: 30px"})</td>
+                                            <td>@Html.TextBoxFor(model => model.Education4.CourseEndDate, new {style = "width:80px; height: 30px"})</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div><br/>
+                    <label for="CourseDegree">Training(s) Attended</label>
+                    <div class="fieldRow">
+
+                        <table class="table-bordered">
+                            <thead>
+                            <tr>
+                                <td><label for="TrainingsAttended">Courses</label></td>
+                                <td><label for="Institute">Institute / Organization Location</label></td>
+                                <td><label for="TrainingFromDate">Training Start Date</label></td>
+                                <td><label for="TrainingToDate">Training End Date</label></td>
+                                <td><label for="Certifications">Certifications (If Any)</label></td>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td>@Html.TextBoxFor(model => model.Trainings.TrainingsAttended, new {style = "width:260px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Trainings.Institute, new {style = "width:180px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Trainings.TrainingFromDate, new {style = "width:140px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Trainings.TrainingToDate, new {style = "width:140px; height: 30px"})</td>
+                                <td>@Html.TextBoxFor(model => model.Trainings.Certifications, new {style = "width:120px; height: 30px"})</td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-click" />
+            }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">@Html.ActionLink("Previous", "Create", "ContactInfo")</button></li>
+            <li><button type="button" class="btn btn-default next-step btn-prev-next">@Html.ActionLink("Next", "Create", "EducationDetails")</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>

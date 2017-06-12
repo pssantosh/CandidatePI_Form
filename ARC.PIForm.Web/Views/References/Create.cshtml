@@ -1,0 +1,214 @@
+﻿@model ARC.PIForm.Model.Entities.ReferenceDetails
+
+@{
+    ViewBag.Title = "Professional Reference Details Form";
+}
+
+
+<h3 class="h3-site">Professional Reference Details</h3>
+
+
+<div>
+
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation">@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation" class="active">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+                @using (Html.BeginForm("Create", "References"))
+                {
+                    <div class="content">
+                        <div style="border: 1px solid lightgray;">
+                            <label for="CourseDegree">Professional References 1 (Current)</label>
+                            <div class="fieldRow">
+
+                                <table class="table-bordered">
+                                    <thead>
+                                        <tr style="text-align: center">
+                                            <td style="width: 150px;"><label for="Name">Name (Reporting Manager)</label></td>
+                                            <td><label for="Duration">Duration of Association</label></td>
+                                            <td><label for="Designation">Designation</label></td>
+                                            <td><label for="Organization">Organization</label></td>
+                                            <td><label for="Organization">Reporting Manager's email</label></td>
+                                            <td>
+                                                <table class="table-bordered">
+                                                    <tr>
+                                                        <th colspan="3" style="width: 255px; text-align: center">Phone (with STD Code)</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px; text-align: center">Mobile</th>
+                                                        <th style="width: 150px; text-align: center">Land Line(Office)/Alternate Number</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr title="Current employment check will run post joining">
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences1.Name, new {style = "width:160px;"})</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences1.Duration, new {style = "width:140px;"})</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences1.Designation, new {style = "width:100px;"})</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences1.Organization, new {style = "width:140px;"})</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences1.Email, new { style = "width:160px;" })</td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(model => model.CurrentReferences1.Mobile, new {style = "width:100px;"})</td>
+                                                    <td>@Html.TextBoxFor(model => model.CurrentReferences1.AlternateNumber, new {style = "width:150px;"})</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+            
+                                    </tr>
+                                </table>
+                            <br/>
+                                <table class="table-bordered">
+                                    <thead>
+                                        <tr style="text-align: center">
+                                            <td style="width: 150px;"><label for="Name">Name</label></td>
+                                            <td><label for="Duration">Duration of Association</label></td>
+                                            <td><label for="Designation">Designation</label></td>
+                                            <td><label for="Organization">Organization</label></td>
+                                            <td><label for="Organization">email</label></td>
+                                            <td>
+                                                <table class="table-bordered">
+                                                    <tr>
+                                                        <th colspan="3" style="width: 255px; text-align: center">Phone (with STD Code)</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px; text-align: center">Mobile</th>
+                                                        <th style="width: 150px; text-align: center">Land Line(Office)/Alternate Number</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr title="Current employment check will run post joining">
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences2.Name, new { style = "width:160px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences2.Duration, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences2.Designation, new { style = "width:100px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences2.Organization, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.CurrentReferences2.Email, new { style = "width:160px;" })</td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(model => model.CurrentReferences2.Mobile, new { style = "width:100px;" })</td>
+                                                    <td>@Html.TextBoxFor(model => model.CurrentReferences2.AlternateNumber, new { style = "width:150px;" })</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div><br />
+                        </div>
+                        <br/>
+                        <div style="border: 1px solid lightgray;">
+                            <label for="CourseDegree">Professional References 2 (Previous)</label>
+                            <div class="fieldRow">
+
+                                <table class="table-bordered">
+                                    <thead>
+                                        <tr style="text-align: center">
+                                            <td style="width: 150px;"><label for="Name">Name (Reporting Manager)</label></td>
+                                            <td><label for="Duration">Duration of Association</label></td>
+                                            <td><label for="Designation">Designation</label></td>
+                                            <td><label for="Organization">Organization</label></td>
+                                            <td><label for="Organization">Reporting Manager's email</label></td>
+                                            <td>
+                                                <table class="table-bordered">
+                                                    <tr>
+                                                        <th colspan="3" style="width: 255px; text-align: center">Phone (with STD Code)</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px; text-align: center">Mobile</th>
+                                                        <th style="width: 150px; text-align: center">Land Line(Office)/Alternate Number</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr title="Current employment check will run post joining">
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences1.Name, new { style = "width:160px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences1.Duration, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences1.Designation, new { style = "width:100px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences1.Organization, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences1.Email, new { style = "width:160px;" })</td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(model => model.PreviousReferences1.Mobile, new { style = "width:100px;" })</td>
+                                                    <td>@Html.TextBoxFor(model => model.PreviousReferences1.AlternateNumber, new { style = "width:150px;" })</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <br />
+                                <table class="table-bordered">
+                                    <thead>
+                                        <tr style="text-align: center">
+                                            <td style="width: 150px;"><label for="Name">Name</label></td>
+                                            <td><label for="Duration">Duration of Association</label></td>
+                                            <td><label for="Designation">Designation</label></td>
+                                            <td><label for="Organization">Organization</label></td>
+                                            <td><label for="Organization">email</label></td>
+                                            <td>
+                                                <table class="table-bordered">
+                                                    <tr>
+                                                        <th colspan="3" style="width: 255px; text-align: center">Phone (with STD Code)</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px; text-align: center">Mobile</th>
+                                                        <th style="width: 150px; text-align: center">Land Line(Office)/Alternate Number</th>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tr title="Current employment check will run post joining">
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences2.Name, new { style = "width:160px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences2.Duration, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences2.Designation, new { style = "width:100px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences2.Organization, new { style = "width:140px;" })</td>
+                                        <td>@Html.TextBoxFor(model => model.PreviousReferences2.Email, new { style = "width:160px;" })</td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(model => model.PreviousReferences2.Mobile, new { style = "width:100px;" })</td>
+                                                    <td>@Html.TextBoxFor(model => model.PreviousReferences2.AlternateNumber, new { style = "width:150px;" })</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div><br />
+                        </div>
+                    </div>
+                    <br/>
+                    <input type="submit" value="Save" class="btn btn-click" />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">@Html.ActionLink("Previous", "Create", "ContactInfo")</button></li>
+            <li><button type="button" class="btn btn-default next-step btn-prev-next">@Html.ActionLink("Next", "Create", "EducationDetails")</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+﻿@model ARC.PIForm.Model.Entities.PreviousEmploymentDetails
+
+@{
+    ViewBag.Title = "Previous Employment Details Form";
+}
+
+
+<h3 class="h3-site">Previous Employment Details</h3>
+
+
+<div>
+
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation" >@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation" class="active">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+                @using (Html.BeginForm("Create", "PreviousEmployment"))
+                {
+                    <div class="content">
+                        <label for="CourseDegree">Present & Previous Employment Details</label>
+                        <div class="fieldRow">
+
+                            <table class="table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td><label for="OrgName">Organization Name</label></td>
+                                        <td><label for="OrgLocation">Organization Location</label></td>
+                                        <td><label for="Designation">Last Held Designation</label></td>
+                                        <td><label for="EmployeeCode">Employee Code</label></td>
+                                        <td>
+                                            <table class="table-bordered">
+                                                <tr>
+                                                    <th colspan="3" style="width: 205px; text-align: center">Contact Details (Human Resouce Only)</th>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 100px; text-align: center">Name</th>
+                                                    <th style="width: 100px; text-align: center">Designation</th>
+                                                    <th style="width: 100px; text-align: center">Phone number/Mobile</th>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <table class="table-bordered" style="text-align: center">
+                                                <tr>
+                                                    <th colspan="2" style="width: 205px; text-align: center">Duration</th>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 90px; text-align: center">From</th>
+                                                    <th style="width: 90px; text-align: center">To</th>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td><label for="AnnualCTC">Annual CTC</label></td>
+                                        <td><label for="Reason">Reason For Leaving</label></td>
+                                    </tr>
+                                </thead>
+                                <tr title="Current employment check will run post joining">
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.OrganizationName, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.OrganizationLocation, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.Designation, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.EmployeeCode, new { style = "width:100px;" })</td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment1.HumanResourceName, new { style = "width:100px;" })</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment1.HumanResourceDesignation, new {style = "width:100px;"})</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment1.HumanResourceContact, new { style = "width:100px;" })</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment1.EmploymentStartDate, new {style = "width:90px;"})</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment1.EmploymentEndDate, new {style = "width:90px;"})</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.AnnualCompensation, new { @type = "number", @min = "0", style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment1.ReasonForLeaving, new { style = "width:100px;" })</td>
+
+                                </tr>
+                                <tr>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.OrganizationName, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.OrganizationLocation, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.Designation, new { style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.EmployeeCode, new { style = "width:100px;" })</td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment2.HumanResourceName, new { style = "width:100px;" })</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment2.HumanResourceDesignation, new { style = "width:100px;" })</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment2.HumanResourceContact, new { style = "width:100px;" })</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment2.EmploymentStartDate, new { style = "width:90px;" })</td>
+                                                <td>@Html.TextBoxFor(model => model.PreviousEmployment2.EmploymentEndDate, new { style = "width:90px;" })</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.AnnualCompensation, new { @type = "number", @min = "0", style = "width:100px;" })</td>
+                                    <td>@Html.TextBoxFor(model => model.PreviousEmployment2.ReasonForLeaving, new { style = "width:100px;" })</td>
+
+                                </tr>
+
+                            </table>
+
+                        </div><br />
+                        
+                    </div>
+
+                    <input type="submit" value="Save" class="btn btn-click" />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">@Html.ActionLink("Previous", "Create", "EducationDetails")</button></li>
+            <li><button type="button" class="btn btn-default next-step btn-prev-next">@Html.ActionLink("Next", "Create", "References")</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>

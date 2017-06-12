@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation" class="active"><a href="/Piform/Create" id="personalInfoClick" aria-controls="home" role="tab" data-toggle="tab">Personal Information</a></li>
+                <li role="presentation"><a href="/ContactInfo/Create" aria-controls="contactInfo" role="tab" data-toggle="tab">Contact Information</a></li>
+                <li role="presentation"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Educational Details</a></li>
+                <li role="presentation"><a href="#previousEmp" aria-controls="previousEmp" role="tab" data-toggle="tab">Previous Employment Details</a></li>
+                <li role="presentation"><a href="#otherDetails" aria-controls="otherDetails" role="tab" data-toggle="tab">Other Details</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">Previous</button></li>
+            <li><button type="button" class="btn btn-default next-step btn-prev-next">Next</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>

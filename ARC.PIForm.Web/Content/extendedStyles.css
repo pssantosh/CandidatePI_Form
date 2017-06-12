@@ -1,0 +1,109 @@
+﻿/*.container {
+    width:110%;
+    border:1px solid #fdf7f7;
+}
+.container div {
+    width:100%;
+}
+.container .header {
+    background-color:#eae1e1;
+    padding: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.container .content {
+    display: none;
+    padding : 8px;
+}*/
+
+span.fieldCell
+{
+	display: -moz-inline-block; 
+	display: inline-block;
+	vertical-align: right;
+	margin: 0 4px 4px 0px;
+}
+span.fieldCell label
+{
+	display: block;
+	margin-bottom: 2px;
+}
+.oneCol { width: 167px; }
+.oneMoreCol{width:180px;}
+.twoCol { width: 342px; }
+.threeCol { width: 517px; }
+.fourCol { width: 692px; }
+.dateField { width: 130px; }
+.fieldsetclass {
+display: -moz-inline-box;
+display: inline-block;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+}
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+.nav-stacked > li + li {
+    margin-top: 0px;
+}
+.nav-tabs > li > a {
+    padding: 5px 5px 5px 5px !important;
+    color: #736f6f;
+    background-color: #E3F2FD;
+    border: 0px;
+    border-radius: 0px;
+    margin: 0;
+}
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+    background-color: #f49737; 
+    color: #FFFFFF;
+    z-index: 99;
+    transition: all 0.5s ease 0s;
+}
+.nav-tabs > li.active > a {
+   color: #FFFFFF;
+   background-color: #f49737;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+    z-index: 100;
+}
+.nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+   color: #FFFFFF;
+   background-color: #f49737;  
+   box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+   transition: all 0.5s ease 0s;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease 0s;
+  
+}
+.btn-primary {
+    background-color: #2962FF;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0D47A1;
+}
+
+  .table-bordered-inner th {
+    border-bottom: 1px solid #ddd !important;
+  }

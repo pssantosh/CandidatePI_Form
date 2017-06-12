@@ -1,0 +1,147 @@
+﻿@model ARC.PIForm.Model.Entities.ContactInfoEntity
+
+@{
+    ViewBag.Title = "Contact Information Form";
+}
+
+
+<h3 class="h3-site">Contact Information</h3>
+
+
+<div>
+
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation" class="active">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation">@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+
+               @using (Html.BeginForm("Create", "ContactInfo"))
+               {
+                   <div class="content">
+                       <div class="fieldRow">
+                           <span class="fieldCell oneCol">
+                                <label for="EmailAddress">Email Address<span class="requiredField">* : </span></label>
+                                @Html.TextBoxFor(model => model.EmailAddress, new {style = "width: 150px"})
+                                @Html.ValidationMessageFor(model => model.EmailAddress, "", new {@class = "field-validation-error"})
+                            </span>
+                           <span class="fieldCell oneCol">
+                                <label for="MobileNumber">Mobile Number <span class="requiredField"> : </span></label>
+                                @Html.TextBoxFor(model => model.MobileNumber, new {style = "width: 150px", @type = "number", @min = "0"})
+                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new {@class = "field-validation-error"})
+                            </span>
+
+                           <span class="fieldCell oneCol">
+                                <label for="CurrentResidenceContact">Landline Contact<span class="requiredField">* : </span></label>
+                                @Html.TextBoxFor(model => model.LandlineContact, new {style = "width: 150px", @type = "number", @min = "0" })
+                                @Html.ValidationMessageFor(model => model.LandlineContact, "", new {@class = "field-validation-error"})
+                            </span>
+                           <span class="fieldCell oneCol">
+                                <label for="EmergencyContact">Emergency Contact <span class="requiredField"> : </span></label>
+                                @Html.TextBoxFor(model => model.EmergencyContact, new {style = "width: 150px", @type = "number", @min = "0" })
+                                @Html.ValidationMessageFor(model => model.EmergencyContact, "", new {@class = "field-validation-error"})
+                            </span>
+
+                       </div><br/>
+                       <div style="border: 1px solid lightgray;">
+                           <label for="CurrentResidenceContactSection">Current Address **</label>
+                           <div class="fieldRow">
+                               <span class="fieldCell twoCol">
+                                    <label for="CurrentAddress1">Address<span class="requiredField">* : </span></label>
+                                    @Html.TextAreaFor(model => model.CurrentAddress.Address, new {style = "width: 300px; height: 50px;"})
+                                   @Html.ValidationMessageFor(model => model.CurrentAddress.Address, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="CurrentCity">City<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.CurrentAddress.City, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.CurrentAddress.City, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="CurrentState">State<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.CurrentAddress.State, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.CurrentAddress.State, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="CurrentCountry">Country<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.CurrentAddress.Country, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.CurrentAddress.Country, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="CurrentPinCode">Pincode<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.CurrentAddress.PinCode, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.CurrentAddress.PinCode, "", new { @class = "field-validation-error" })
+                                </span>
+                           </div><br/>
+                           <div class="fieldRow">
+                               <span class="fieldCell threeCol">
+                                    <label for="CurrentLandmark">Landmark<span class="requiredField"> : </span></label>
+                                    @Html.TextBoxFor(model => model.CurrentAddress.Landmark, new {style = "width:300px"})
+                                </span>
+                           </div>
+                       </div>
+                       <br/>
+                       <div style="border: 1px solid lightgray;">
+                           <label for="PermanentResidenceContactSection">Permanent Address **</label>
+                           <div class="fieldRow">
+                               <span class="fieldCell twoCol">
+                                    <label for="PermanentAddress1">Address<span class="requiredField">* : </span></label>
+                                    @Html.TextAreaFor(model => model.PermanentAddress.Address, new {style = "width: 300px; height: 50px;"})
+                                   @Html.ValidationMessageFor(model => model.PermanentAddress.Address, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="PermanentCity">City<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.PermanentAddress.City, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.PermanentAddress.City, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="PermanentState">State<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.PermanentAddress.State, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.PermanentAddress.State, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="PermanentCountry">Country<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.PermanentAddress.Country, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.PermanentAddress.Country, "", new { @class = "field-validation-error" })
+                                </span>
+                               <span class="fieldCell oneCol">
+                                    <label for="PermanentPinCode">Pincode<span class="requiredField">* : </span></label>
+                                    @Html.TextBoxFor(model => model.PermanentAddress.PinCode, new {style = "width: 150px"})
+                                   @Html.ValidationMessageFor(model => model.PermanentAddress.PinCode, "", new { @class = "field-validation-error" })
+                                </span>
+                           </div><br/>
+                           <div class="fieldRow">
+                               <span class="fieldCell twoCol">
+                                    <label for="PermanentLandmark">Landmark<span class="requiredField"> : </span></label>
+                                    @Html.TextBoxFor(model => model.PermanentAddress.Landmark, new {style = "width:300px"})
+                                </span>
+
+                           </div><br/>
+                       </div>
+                       <br/>
+                   </div>
+                <input type="submit" value="Save" class="btn btn-click" />
+               }
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">@Html.ActionLink("Previous", "Create", "Piform")</button></li>
+            <li><button type="button" class="btn btn-default next-step btn-prev-next">@Html.ActionLink("Next", "Create", "EducationDetails")</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>

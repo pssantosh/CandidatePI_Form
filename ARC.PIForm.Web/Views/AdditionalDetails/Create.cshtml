@@ -1,0 +1,119 @@
+﻿@model ARC.PIForm.Model.Entities.AdditionalDetailsEntity
+
+@{
+    ViewBag.Title = "Additional Details Form";
+}
+
+
+<h3 class="h3-site">Additional Details</h3>
+
+
+<div>
+
+</div>
+<div class="formContainer" style="margin-top: 10px">
+    <div class="row">
+        <div class="col col-sm-2">
+            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                <li role="presentation">@Html.ActionLink("Personal Information", "Create", "Piform")</li>
+                <li role="presentation">@Html.ActionLink("Contact Information", "Create", "ContactInfo")</li>
+                <li role="presentation">@Html.ActionLink("Educational Details", "Create", "EducationDetails")</li>
+                <li role="presentation">@Html.ActionLink("Previous Employment Details", "Create", "PreviousEmployment")</li>
+                <li role="presentation">@Html.ActionLink("Reference Details", "Create", "References")</li>
+                <li role="presentation" class="active">@Html.ActionLink("Additional Details", "Create", "AdditionalDetails")</li>
+            </ul>
+        </div>
+        <div class="col col-sm-10">
+            <div class="row tab-content">
+                @using (Html.BeginForm("Create", "AdditionalDetails"))
+                {
+                    <div class="content">
+                        <div style="border: 1px solid lightgray;">
+                            <label for="CourseDegree">Additional Details</label>
+                            <div class="fieldRow">
+
+                                @{ var travelList = new SelectList(new List<SelectListItem>
+                               {
+                                   new SelectListItem {Text = "Short Term", Value = "ShortTerm"},
+                                   new SelectListItem {Text = "Long Term", Value = "LongTerm"}
+                               }, "Value", "Text"); }
+                                <table class="table-bordered">
+                                    <tr>
+                                        <td style="width: 450px;">Have you been denied VISA to any country? <br/> If yes, please provide details</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.VisaDenial, "true") Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.VisaDenial, "false", new {@checked="checked"}) No</td>
+                                        <td>@Html.TextBoxFor(model => model.VisaDenialDetails, new {style = "width: 450px;"})</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 450px;">Have you worked on overseas assignment? <br/>
+                                            If Yes, provide details on countries visited and type of visas held</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.OverseasAssignment, "true") Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.OverseasAssignment, "false", new { @checked = "checked" }) No</td>
+                                        <td>@Html.TextBoxFor(model => model.OverseasAssignmentDetails, new {style = "width: 450px;"})</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 450px;">
+                                            Do you have any relative/friend employed at eMids? <br/>
+                                            If Yes, his/her name along with division/location.
+                                        </td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.EmidsFriendsRelatives, "true") Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.EmidsFriendsRelatives, "false", new { @checked = "checked" }) No</td>
+                                        <td>@Html.TextBoxFor(model => model.EmidsFriendsRelativesDetails, new {style = "width: 450px;"})</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 450px;">
+                                            Have you suffered from any illness/surgery/accident in the last five years?  <br/>
+                                            If Yes, Details.
+                                        </td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.Illness, "true") Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.Illness, "false", new { @checked = "checked" }) No</td>
+                                        <td>@Html.TextBoxFor(model => model.IllnessDetails, new {style = "width: 450px;"})</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 350px;">
+                                            Have you ever been arrested, prosecuted or convicted for any criminal offense, other than minor traffic offenses?   <br />
+                                            If Yes, furnish details including type of offense and conviction.
+                                        </td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.Prosecution, "true") Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.Prosecution, "false", new { @checked = "checked" }) No</td>
+                                        <td>@Html.TextBoxFor(model => model.ProsecutionDetails, new { style = "width: 450px;" })</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 350px;">
+                                            Are you willing to travel abroad? <br/>
+                                            If No, specify the reason.
+                                        </td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.TravelAbroad, "true", new { @checked = "checked" }) Yes</td>
+                                        <td style="width: 50px; text-align: center">@Html.RadioButtonFor(model => model.TravelAbroad, "false") No</td>
+                                        <td>@Html.TextBoxFor(model => model.TravelAbroadDetails, new {style = "width: 450px;"})</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 350px;">
+                                            If Yes, Select the option: 
+                                        </td>
+                                        <td colspan="2" style="width: 100px; text-align: center">@Html.DropDownListFor(model => model.TravelAbroadDuration, travelList, new { style = "width: 150px;" })</td>
+                                        
+                                    </tr>
+                                </table>
+                                <br />
+                                
+                            </div>
+                        </div>
+                        <br />
+                        
+                    </div>
+                    <br />
+                    <input type="submit" value="Save" class="btn btn-click" />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <br />
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default prev-step btn-prev-next">@Html.ActionLink("Previous", "Create", "References")</button></li>
+            @*<li><input type="submit" value="Submit" class="btn btn-click"/></li>*@
+        </ul>
+    </div>
+</div>
