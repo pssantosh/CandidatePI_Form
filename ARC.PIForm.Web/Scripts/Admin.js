@@ -24,9 +24,9 @@
             datatype: "json",
             colModel: [
 	                { name: 'CandidateId', key: true, width: 25, resizable: false, sortable: false, hidden: true },
-	                { name: 'CandidateName', key: true, width: 220, resizable: false, sortable: false, hidden: false },
-	                { name: 'CandidateEmail', key: true, width: 220, resizable: false, sortable: false, hidden: false },
-                    { name: 'CreatedOn', key: true, width: 150, resizable: false, sortable: false, hidden: false },
+	                { name: 'CandidateName', key: true, width: 200, resizable: false, sortable: false, hidden: false },
+	                { name: 'CandidateEmail', key: true, width: 200, resizable: false, sortable: false, hidden: false },
+                    { name: 'CreatedOn', key: true, width: 120, resizable: false, sortable: false, hidden: false },
 	                { name: 'Status', key: true, width: 80, resizable: false, sortable: false, hidden: false },
                     { name: 'Action', key: true, width: 80, resizable: false, sortable: false, hidden: false }
             ],
