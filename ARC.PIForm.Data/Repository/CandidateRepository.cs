@@ -26,9 +26,28 @@ namespace ARC.PIForm.Data.Repository
                           + " VALUES (@Prefix, @FirstName, @MiddleName, @LastName, @Gender, @MaritalStatus, @BirthDate, @Anniversary, "
                           + "  @Qualification, @WorkExperience, @PanCardNumber, @AadharCardNumber, @UanNumber, @PassportNumber, @PassportExpiry, @PassportIssuePlace, @Visa, @VisaExpiry)"
                           + " SELECT CAST(SCOPE_IDENTITY() as int)";
-                var result = conn.Query<int>(sql, new {candidate.Prefix, candidate.FirstName, candidate.MiddleName, candidate.LastName, candidate.Gender, candidate.MaritalStatus, candidate.BirthDate, candidate.Anniversary,
-                            candidate.Qualification, candidate.WorkExperience, candidate.PanCardNumber, candidate.AadharCardNumber, candidate.UanNumber
-                            , candidate.PassportNumber, candidate.PassportExpiry, candidate.PassportIssuePlace, candidate.Visa, candidate.VisaExpiry}).Single();
+                var result = conn.Query<int>(sql, new
+                {
+                    candidate.Prefix,
+                    candidate.FirstName,
+                    candidate.MiddleName,
+                    candidate.LastName,
+                    candidate.Gender,
+                    candidate.MaritalStatus,
+                    candidate.BirthDate,
+                    candidate.Anniversary,
+                    candidate.Qualification,
+                    candidate.WorkExperience,
+                    candidate.PanCardNumber,
+                    candidate.AadharCardNumber,
+                    candidate.UanNumber
+                            ,
+                    candidate.PassportNumber,
+                    candidate.PassportExpiry,
+                    candidate.PassportIssuePlace,
+                    candidate.Visa,
+                    candidate.VisaExpiry
+                }).Single();
                 return result;
             }
         }
@@ -82,9 +101,22 @@ namespace ARC.PIForm.Data.Repository
                           + " VALUES (@CandidateId, @UniversityName, @UniversityAddress, @UniversityContactNumber, @RegistrationNumber, "
                           + " @Course, @Specialization, @CollegeName, @CollegeAddress, @CollegeContact, @CourseStartDate, @CourseEndDate, @FileNamePath) "
                           + " SELECT CAST(SCOPE_IDENTITY() as int)";
-                var result = conn.Query<int>(sql, new { candidateEducationDetails.CandidateId, candidateEducationDetails.UniversityName, candidateEducationDetails.UniversityAddress, candidateEducationDetails.UniversityContactNumber, candidateEducationDetails.RegistrationNumber,
-                     candidateEducationDetails.Course, candidateEducationDetails.Specialization, candidateEducationDetails.CollegeName, candidateEducationDetails.CollegeAddress, candidateEducationDetails.CollegeContact,
-                    candidateEducationDetails.CourseStartDate, candidateEducationDetails.CourseEndDate, candidateEducationDetails.FileNamePath }).Single();
+                var result = conn.Query<int>(sql, new
+                {
+                    candidateEducationDetails.CandidateId,
+                    candidateEducationDetails.UniversityName,
+                    candidateEducationDetails.UniversityAddress,
+                    candidateEducationDetails.UniversityContactNumber,
+                    candidateEducationDetails.RegistrationNumber,
+                    candidateEducationDetails.Course,
+                    candidateEducationDetails.Specialization,
+                    candidateEducationDetails.CollegeName,
+                    candidateEducationDetails.CollegeAddress,
+                    candidateEducationDetails.CollegeContact,
+                    candidateEducationDetails.CourseStartDate,
+                    candidateEducationDetails.CourseEndDate,
+                    candidateEducationDetails.FileNamePath
+                }).Single();
                 return result;
             }
         }
@@ -110,10 +142,21 @@ namespace ARC.PIForm.Data.Repository
                           + " (CandidateId, OrganizationName, OrganizationLocation, Designation, EmployeeCode, HumanResourceName, HumanResourceDesignation, HumanResourceContact, EmploymentStartDate, EmploymentEndDate, AnnualCompensation, ReasonToLeave ) "
                           + " VALUES (@CandidateId, @OrganizationName, @OrganizationLocation, @Designation, @EmployeeCode, @HumanResourceName, @HumanResourceDesignation, @HumanResourceContact, @EmploymentStartDate, @EmploymentEndDate, @AnnualCompensation, @ReasonToLeave )"
                           + " SELECT CAST(SCOPE_IDENTITY() as int)";
-                var result = conn.Query<int>(sql, new { candidateEmploymentDetails.CandidateId, candidateEmploymentDetails.OrganizationName,
-                    candidateEmploymentDetails.OrganizationLocation, candidateEmploymentDetails.Designation, candidateEmploymentDetails.EmployeeCode,
-                    candidateEmploymentDetails.HumanResourceName, candidateEmploymentDetails.HumanResourceDesignation, candidateEmploymentDetails.HumanResourceContact,
-                    candidateEmploymentDetails.EmploymentStartDate, candidateEmploymentDetails.EmploymentEndDate, candidateEmploymentDetails.AnnualCompensation, candidateEmploymentDetails.ReasonToLeave }).Single();
+                var result = conn.Query<int>(sql, new
+                {
+                    candidateEmploymentDetails.CandidateId,
+                    candidateEmploymentDetails.OrganizationName,
+                    candidateEmploymentDetails.OrganizationLocation,
+                    candidateEmploymentDetails.Designation,
+                    candidateEmploymentDetails.EmployeeCode,
+                    candidateEmploymentDetails.HumanResourceName,
+                    candidateEmploymentDetails.HumanResourceDesignation,
+                    candidateEmploymentDetails.HumanResourceContact,
+                    candidateEmploymentDetails.EmploymentStartDate,
+                    candidateEmploymentDetails.EmploymentEndDate,
+                    candidateEmploymentDetails.AnnualCompensation,
+                    candidateEmploymentDetails.ReasonToLeave
+                }).Single();
                 return result;
             }
         }
@@ -126,8 +169,17 @@ namespace ARC.PIForm.Data.Repository
                           + " (CandidateId, Name, Duration, Designation, Organization, Email, Mobile, AlternateNumber) "
                           + " VALUES (@CandidateId, @Name, @Duration, @Designation, @Organization, @Email, @Mobile, @AlternateNumber)"
                           + " SELECT CAST(SCOPE_IDENTITY() as int)";
-                var result = conn.Query<int>(sql, new { candidateReferences.CandidateId, candidateReferences.Name, candidateReferences.Duration,
-                    candidateReferences.Designation, candidateReferences.Organization, candidateReferences.Email, candidateReferences.Mobile, candidateReferences.AlternateNumber }).Single();
+                var result = conn.Query<int>(sql, new
+                {
+                    candidateReferences.CandidateId,
+                    candidateReferences.Name,
+                    candidateReferences.Duration,
+                    candidateReferences.Designation,
+                    candidateReferences.Organization,
+                    candidateReferences.Email,
+                    candidateReferences.Mobile,
+                    candidateReferences.AlternateNumber
+                }).Single();
                 return result;
             }
         }
@@ -137,16 +189,30 @@ namespace ARC.PIForm.Data.Repository
             using (var conn = SqlConnectionFactory.CreateConnection())
             {
                 var sql = "INSERT INTO CandidateAddtionalDetails "
-                          + " (CandidateId, VisaDenial, VisaDenialDetails, OverseasAssignment,OverseasAssignmentDetails, EmidsFriendsRelatives, EmidsFriendsRelativesDetails, Illness, IllnessDetails, Prosecution," 
+                          + " (CandidateId, VisaDenial, VisaDenialDetails, OverseasAssignment,OverseasAssignmentDetails, EmidsFriendsRelatives, EmidsFriendsRelativesDetails, Illness, IllnessDetails, Prosecution,"
                           + "  ProsecutionDetails, OtherEmployerCommittment, OtherEmployerCommittmentDetails, TravelAbroad,TravelAbroadDetails, TravelAbroadDuration) "
                           + " VALUES (@CandidateId, @VisaDenial, @VisaDenialDetails, @OverseasAssignment, @OverseasAssignmentDetails, @EmidsFriendsRelatives, @EmidsFriendsRelativesDetails, @Illness, @IllnessDetails, @Prosecution,"
                           + "  @ProsecutionDetails, @OtherEmployerCommittment, @OtherEmployerCommittmentDetails, @TravelAbroad, @TravelAbroadDetails, @TravelAbroadDuration)"
                           + " SELECT CAST(SCOPE_IDENTITY() as int)";
-                var result = conn.Query<int>(sql, new { candidateAdditionalDetails.CandidateId, candidateAdditionalDetails.VisaDenial, 
-                    candidateAdditionalDetails.VisaDenialDetails, candidateAdditionalDetails.OverseasAssignment, candidateAdditionalDetails.OverseasAssignmentDetails,
-                    candidateAdditionalDetails.EmidsFriendsRelatives, candidateAdditionalDetails.EmidsFriendsRelativesDetails, candidateAdditionalDetails.Illness, candidateAdditionalDetails.IllnessDetails,
-                    candidateAdditionalDetails.Prosecution, candidateAdditionalDetails.ProsecutionDetails, candidateAdditionalDetails.OtherEmployerCommittment, candidateAdditionalDetails.OtherEmployerCommittmentDetails,
-                    candidateAdditionalDetails.TravelAbroad, candidateAdditionalDetails.TravelAbroadDetails, candidateAdditionalDetails.TravelAbroadDuration}).Single();
+                var result = conn.Query<int>(sql, new
+                {
+                    candidateAdditionalDetails.CandidateId,
+                    candidateAdditionalDetails.VisaDenial,
+                    candidateAdditionalDetails.VisaDenialDetails,
+                    candidateAdditionalDetails.OverseasAssignment,
+                    candidateAdditionalDetails.OverseasAssignmentDetails,
+                    candidateAdditionalDetails.EmidsFriendsRelatives,
+                    candidateAdditionalDetails.EmidsFriendsRelativesDetails,
+                    candidateAdditionalDetails.Illness,
+                    candidateAdditionalDetails.IllnessDetails,
+                    candidateAdditionalDetails.Prosecution,
+                    candidateAdditionalDetails.ProsecutionDetails,
+                    candidateAdditionalDetails.OtherEmployerCommittment,
+                    candidateAdditionalDetails.OtherEmployerCommittmentDetails,
+                    candidateAdditionalDetails.TravelAbroad,
+                    candidateAdditionalDetails.TravelAbroadDetails,
+                    candidateAdditionalDetails.TravelAbroadDuration
+                }).Single();
                 return result;
             }
 
@@ -172,6 +238,28 @@ namespace ARC.PIForm.Data.Repository
         public IEnumerable<Candidate> GetCandidateDetails(int candidateId)
         {
             throw new NotImplementedException();
+        }
+
+        public NewCandidateLinkRequest CheckPIFormLinkExists(string emailAddress)
+        {
+            using (var conn = SqlConnectionFactory.CreateConnection())
+            {
+                var sql = "SELECT TOP 1 CAST(UniqueKey AS VARCHAR(255)) As UniqueId, ExpiryDate FROM dbo.CandidateAdmin WHERE CandidateEmail = @emailAddress"
+                          + " AND CONVERT(date, getdate()) <= ExpiryDate "
+                          + " ORDER BY CandidateAdminId DESC";
+                var result = conn.Query<NewCandidateLinkRequest>(sql, new { emailAddress }).FirstOrDefault();
+                return result;
+            }
+        }
+
+        public void CreatePIFormLink(NewCandidateLinkRequest model)
+        {
+            using (var conn = SqlConnectionFactory.CreateConnection())
+            {
+                var sql = "INSERT INTO CandidateAdmin ([CandidateName], [CandidateEmail], [UniqueKey], [CreatedOn], [ExpiryDate], [IsLocked], [IsFinalized])"
+                          + " VALUES (@Name, @EmailAddress, @UniqueId, GETDATE(), CONVERT(DATE, (DATEADD(DAY, 14, GETDATE()))), 0, 0) ";
+                conn.Execute(sql, new { model.Name, model.EmailAddress, model.UniqueId });
+            }
         }
     }
 }

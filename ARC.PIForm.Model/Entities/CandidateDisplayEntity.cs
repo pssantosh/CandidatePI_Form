@@ -222,4 +222,38 @@ namespace ARC.PIForm.Model.Entities
         public decimal MonthlyGross { get; set; }
         public decimal AnnualGross { get; set; }
     }
+
+    public class NewCandidateLinkRequest
+    {
+        public string Name { get; set; }
+        //[Required(ErrorMessage = "Email address is needed.")]
+        //[StringLength(200)]
+        //[DataType(DataType.EmailAddress, ErrorMessage = "Email address is not in correct format.")]
+        public string EmailAddress { get; set; }
+
+        public string PIFormLink { get; set; }
+
+        public string UniqueId { get; set; }
+
+        public DateTime ExpiryDate { get; set; }
+
+        public int State { get; set; }  //0 - error; 1 - warning; 2 - success
+    }
+
+    public class CandidateFilterData
+    {
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
+    }
+
+    public class LinkRequestCandidate
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public string Status { get; set; }
+        public DateTime CreatedOn { get; set; }
+    }
 }

@@ -221,6 +221,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AdditionalDetailsController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
+    <Compile Include="Controllers\Admin\RequestController.cs" />
     <Compile Include="Controllers\ContactInfoController.cs" />
     <Compile Include="Controllers\EducationDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -238,12 +239,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\extendedStyles.css" />
+    <Content Include="Content\images\copy.png" />
     <Content Include="Content\images\emids-Logo.png" />
     <Content Include="Content\images\emidsLogo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admin.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -255,6 +258,10 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -264,7 +271,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ToggleEvents.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -280,11 +289,12 @@
     <Content Include="Views\Piform\Edit.cshtml" />
     <Content Include="Views\Piform\_PersonalInformation.cshtml" />
     <None Include="Views\AdditionalDetails\Create.cshtml" />
-    <Content Include="Views\Admin\Candidate.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Views\ContactInfo\Create.cshtml" />
     <None Include="Views\EducationDetails\Create.cshtml" />
     <None Include="Views\PreviousEmployment\Create.cshtml" />
     <None Include="Views\References\Create.cshtml" />
+    <Content Include="Views\Request\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

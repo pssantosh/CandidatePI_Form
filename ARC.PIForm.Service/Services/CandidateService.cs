@@ -297,5 +297,42 @@ namespace ARC.PIForm.Service.Services
         //        AnnualGross = candidateDisplayEntity.MonthlyEmoluments.AnnualGross
         //    };
         //}
+
+        public string GetCandidatePIFormUrl(ref NewCandidateLinkRequest model)
+        {
+            NewCandidateLinkRequest datamodel = CandidateRepository.CheckPIFormLinkExists(model.EmailAddress);
+            if (datamodel != null && !string.IsNullOrWhiteSpace(datamodel.UniqueId))
+            {
+                //Existing 
+                model.State         =   1;
+                model.UniqueId      =   datamodel.UniqueId;
+                model.ExpiryDate    =   datamodel.ExpiryDate;
+            }
+            else
+            {
+                //Create new
+                model.State     =   2;
+                model.UniqueId  =   Guid.NewGuid().ToString().ToUpper();
+                CandidateRepository.CreatePIFormLink(model);
+            }
+
+            string message = string.Empty;
+            switch (model.State)
+            {
+                case 0:
+                    message = "Error creating the PI Form Link. Please get in touch with Admin.";
+                    break;
+                case 1:
+                    message = "Existing active PI Link is available and will expire by " + model.ExpiryDate.ToShortDateString();
+                    break;
+                case 2:
+                    message = "Success! The above PI Link will be active till " + model.ExpiryDate.ToShortDateString();
+                    break;
+                default:
+                    message = "Error creating the PI Form Link. Please get in touch with Admin.";
+                    break;
+            }
+            return message;
+        }
     }
 }
