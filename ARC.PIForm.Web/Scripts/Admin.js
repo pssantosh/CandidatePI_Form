@@ -13,13 +13,19 @@
     var initializeAdminSearch = function (srvGetCandidateList) {
         getCandidateList = srvGetCandidateList;
 
+        $('#btnSearch').click(function () {
+            loadGrid();
+        });
+    },
+    loadGrid = function () {
+
         $('#jqGrid').jqGrid({
             url: getCandidateList,
             datatype: "json",
             colModel: [
-	                { name: 'Id', key: true, width: 25, resizable: false, sortable: false, hidden: true },
-	                { name: 'Name', key: true, width: 220, resizable: false, sortable: false, hidden: false },
-	                { name: 'EmailAddress', key: true, width: 220, resizable: false, sortable: false, hidden: false },
+	                { name: 'CandidateId', key: true, width: 25, resizable: false, sortable: false, hidden: true },
+	                { name: 'CandidateName', key: true, width: 220, resizable: false, sortable: false, hidden: false },
+	                { name: 'CandidateEmail', key: true, width: 220, resizable: false, sortable: false, hidden: false },
                     { name: 'CreatedOn', key: true, width: 150, resizable: false, sortable: false, hidden: false },
 	                { name: 'Status', key: true, width: 80, resizable: false, sortable: false, hidden: false },
                     { name: 'Action', key: true, width: 80, resizable: false, sortable: false, hidden: false }
@@ -41,9 +47,6 @@
             }
         });
 
-        $('#btnSearch').click(function () {
-            reloadGrid();
-        });
     },
     reloadGrid = function () {
         $('#jqGrid').setGridParam({

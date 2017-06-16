@@ -334,5 +334,10 @@ namespace ARC.PIForm.Service.Services
             }
             return message;
         }
+
+        public List<CandidateDetail> GetCandidateSearchList(CandidateFilterData filterData)
+        {
+            return CandidateRepository.GetCandidateSearchList(filterData);
+        }
     }
 }

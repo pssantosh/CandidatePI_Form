@@ -261,5 +261,22 @@ namespace ARC.PIForm.Data.Repository
                 conn.Execute(sql, new { model.Name, model.EmailAddress, model.UniqueId });
             }
         }
+
+        public List<CandidateDetail> GetCandidateSearchList(CandidateFilterData filterData)
+        {
+            using (var conn = SqlConnectionFactory.CreateConnection())
+            {
+                var sql = "SELECT CASE WHEN C.CandidateId IS NULL THEN NULL ELSE C.CandidateId END AS CandidateId"
+                            + ",CA.CandidateName, CA.CandidateEmail, CONVERT(DATE, CA.CreatedOn) AS CreatedOn, CA.ExpiryDate"
+                            + ",CASE WHEN C.CandidateId IS NULL THEN 'Not Started' ELSE 'In Progress' END AS[Status]"
+                            + " FROM [dbo].[CandidateAdmin] CA LEFT JOIN [dbo].[Candidate] C ON CA.CandidateAdminId = C.CandidateAdminId "
+                            + " WHERE "
+                            + " (@Name IS NULL OR CA.CandidateName LIKE '%' + @Name + '%')	AND "
+                            + " (@EmailAddress IS NULL OR CA.CandidateEmail LIKE '%' + @EmailAddress + '%')	AND "
+                            + " (@FromDate IS NULL OR @ToDate IS NULL OR CA.CreatedOn BETWEEN @FromDate AND @ToDate) ";
+                var result = conn.Query<CandidateDetail>(sql, new { filterData.Name, filterData.EmailAddress, filterData.FromDate, filterData.ToDate }).ToList();
+                return result;
+            }
+        }
     }
 }

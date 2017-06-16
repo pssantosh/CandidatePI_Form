@@ -21,5 +21,7 @@ namespace ARC.PIForm.Service.Interfaces
         ReferenceDetails InsertReferenceDetails(ReferenceDetails referenceDetails, int candidateId);
         AdditionalDetailsEntity InsertAdditionalDetails(AdditionalDetailsEntity additionalDetailsEntity, int candidateId);
         string GetCandidatePIFormUrl(ref NewCandidateLinkRequest model);
+
+        List<CandidateDetail> GetCandidateSearchList(CandidateFilterData filterData);
     }
 }

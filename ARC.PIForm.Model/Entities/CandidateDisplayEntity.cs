@@ -226,9 +226,6 @@ namespace ARC.PIForm.Model.Entities
     public class NewCandidateLinkRequest
     {
         public string Name { get; set; }
-        //[Required(ErrorMessage = "Email address is needed.")]
-        //[StringLength(200)]
-        //[DataType(DataType.EmailAddress, ErrorMessage = "Email address is not in correct format.")]
         public string EmailAddress { get; set; }
 
         public string PIFormLink { get; set; }
@@ -244,16 +241,17 @@ namespace ARC.PIForm.Model.Entities
     {
         public string Name { get; set; }
         public string EmailAddress { get; set; }
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
     }
 
-    public class LinkRequestCandidate
+    public class CandidateDetail
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
+        public int CandidateId { get; set; }
+        public string CandidateName { get; set; }
+        public string CandidateEmail { get; set; }
+        public string CreatedOn { get; set; }
+        public string ExpiryDate { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedOn { get; set; }
     }
 }

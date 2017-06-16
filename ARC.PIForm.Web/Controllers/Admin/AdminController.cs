@@ -1,14 +1,22 @@
-﻿using ARC.PIForm.Model.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ARC.PIForm.Model.Entities;
+using ARC.PIForm.Service.Services;
 
 namespace ARC.PIForm.Web.Controllers.Admin
 {
     public class AdminController : Controller
     {
+        private CandidateService _candidateService;
+        private CandidateService CandidateService
+        {
+            get { return _candidateService ?? new CandidateService(); }
+            set { _candidateService = value; }
+        }
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -17,12 +25,7 @@ namespace ARC.PIForm.Web.Controllers.Admin
 
         public JsonResult GetCandidateList(CandidateFilterData filterData, int page = 0, int rows = 10)
         {
-            List<LinkRequestCandidate> lstCandidates = new List<LinkRequestCandidate>()
-            {
-                new LinkRequestCandidate() { Id = 1, Name = "Santosh Shivalingappa", EmailAddress = "Santosh.Shivalingappa@gmail.com", Status = "InProgress", CreatedOn = DateTime.Now.Date },
-                new LinkRequestCandidate() { Id = 2, Name = "B", EmailAddress = "d.c@c.com", Status = "Closed", CreatedOn = DateTime.Now.Date.Add(TimeSpan.FromDays(-1)) },
-                new LinkRequestCandidate() { Id = 3, Name = "C", EmailAddress = "a.g@c.com", Status = "Not Started", CreatedOn = DateTime.Now.Date.Add(TimeSpan.FromDays(-1)) },
-            };
+            List<CandidateDetail> lstCandidates = CandidateService.GetCandidateSearchList(filterData);
 
             //Get candidates list here
 
@@ -31,7 +34,7 @@ namespace ARC.PIForm.Web.Controllers.Admin
             int totalRecords = lstCandidates.Count();
             int totalPages = (int)Math.Ceiling((float)totalRecords / (float)pageSize);
 
-            var data = lstCandidates.OrderBy(x => x.Name)
+            var data = lstCandidates.OrderBy(c => c.CreatedOn)
                             .Skip(pageSize * (page - 1))
                             .Take(pageSize).ToList();
 
